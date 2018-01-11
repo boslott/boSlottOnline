@@ -1,0 +1,36 @@
+// Side Navbar
+nav.side-navbar
+  // Sidebar Header
+  .sidebar-header.d-flex.align-items-center
+    .avatar
+      img.img-fluid.rounded-circle(src='/images/siteImages/bo-admin-profile-pic.jpg' alt='...')
+    .title
+      h1.h4 BO
+      p Web Designer
+  // Sidebar Navidation Menus
+  span.heading Main
+  ul.list-unstyled
+    each item in h.adminNav
+      li
+        a(href=item.slug)
+          i.material-icons #{item.icon}
+          | #{item.title}
+    
+  span.heading Extras
+  ul.list-unstyled
+    li
+      a(href='#')
+        i.icon-flask
+        | Demo
+    li
+      a(href='#')
+        i.icon-screen
+        | Demo
+    li
+      a(href='#')
+        i.icon-mail
+        | Demo
+    li
+      a(href='#')
+        i.icon-picture
+        | Demo

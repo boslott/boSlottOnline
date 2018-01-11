@@ -1,0 +1,204 @@
+extends layout
+
+block content
+  section.font-1.py-0
+    .container
+      .row.h-lg-full.align-items-end.overflow-hidden
+        .col.text-center.pt-8
+          h6.ls.text-uppercase.mb-5 Bo Slott online
+          h2.fw-300
+            | Creating
+            span.color-primary
+              br.hidden-sm-up
+              span.typed-text.fw-400(data-typed-text='[" beautiful"," gorgeous"," outstanding"," remarkable"," stunning"]')
+            br.hidden-sm-up
+            |  websites
+          p.mt-1.lead.color-5 Anything you can design, you can design better. 
+          a.btn.btn-primary.btn-sm.mt-5(href='#home-demos') Explore demos
+          br
+          .fs--1.mt-2
+            
+          img.mt-5.mt-sm-3.mt-md-0(src='/images/poshImages/showcase-01.jpg')
+      // /.row
+    // /.container
+  section#home-demos.font-1.text-center.background-1.py-6.py-xl-9
+    .container
+      .row.justify-content-center
+        .col-xl-9.col-lg-10
+          .fs-2.color-7.fw-300
+            | No matter the task, the new POSH is up to it — and even more. See for yourself — all the pre-made demos, inspired by world's finest websites, are
+            span.fw-600.color-white made with POSH. 
+            | And this is only a tip of the iceberg of what you will get.
+          hr.short.color-7.mt-6.mb-5
+      // /.row
+    // /.container
+  //- section.font-1.text-center.background-1.pt-0.sortable
+    .container-fluid
+      .row.sortable-container
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='home-landing-nokia.html')
+          h6.fs-0.mb-3
+            | Landing NOKIA
+            .mt-2.fs--1.fw-400.color-8 (Nokia 5)
+          img(src='/images/poshImages/screenshots/home-landing-nokia.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='home-digital-agency.html')
+          h6.fs-0.mb-3
+            | Digital Agency
+            .mt-2.fs--1.fw-400.color-8 (Technext, Green Chameleon)
+          img(src='/images/poshImages/screenshots/home-digital-agency.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='home-travel-agency.html')
+          h6.fs-0.mb-3
+            | Travel Agency
+            .mt-2.fs--1.fw-400.color-8 (ireland.com)
+          img(src='/images/poshImages/screenshots/home-travel-agency.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='home-conference.html')
+          h6.fs-0.mb-3
+            | Conference
+            .mt-2.fs--1.fw-400.color-8 (Chain React)
+          img(src='/images/poshImages/screenshots/home-conference.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='home-education.html')
+          h6.fs-0.mb-3
+            | Education
+            .mt-2.fs--1.fw-400.color-8 (American University, Stanford)
+          img(src='/images/poshImages/screenshots/home-education.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='home-hospital.html')
+          h6.fs-0.mb-3
+            | Hospital
+            .mt-2.fs--1.fw-400.color-8 (Northwestern Medicine, Columbus Regional Health)
+          img(src='/images/poshImages/screenshots/home-hospital.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='home-hotel.html')
+          h6.fs-0.mb-3
+            | Hotel
+            .mt-2.fs--1.fw-400.color-8 (The Peninsula, Trump Hotels)
+          img(src='/images/poshImages/screenshots/home-hotel.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='home-landing-software.html')
+          h6.fs-0.mb-3
+            | Landing Software
+            .mt-2.fs--1.fw-400.color-8 (Skype, Dropbox)
+          img(src='/images/poshImages/screenshots/home-landing-software.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='home-personal.html')
+          h6.fs-0.mb-3 Personal
+          img(src='/images/poshImages/screenshots/home-personal.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='home-restaurant.html')
+          h6.fs-0.mb-3
+            | Restaurant
+            .mt-2.fs--1.fw-400.color-8 (The Smoke Haus, Yung Kee)
+          img(src='/images/poshImages/screenshots/home-restaurant.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='home-shop.html')
+          h6.fs-0.mb-3
+            | Shop
+            .mt-2.fs--1.fw-400.color-8 (Aliexpress, Sammy Dress)
+          img(src='/images/poshImages/screenshots/home-shop.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-about-company.html')
+          h6.fs-0.mb-3 About Company
+          img(src='/images/poshImages/screenshots/page-about-company.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-about-team.html')
+          h6.fs-0.mb-3 About Team
+          img(src='/images/poshImages/screenshots/page-about-team.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-careers.html')
+          h6.fs-0.mb-3 Careers
+          img(src='/images/poshImages/screenshots/page-careers.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-contact-1.html')
+          h6.fs-0.mb-3 Contact 1
+          img(src='/images/poshImages/screenshots/page-contact-1.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-contact-2.html')
+          h6.fs-0.mb-3 Contact 2
+          img(src='/images/poshImages/screenshots/page-contact-2.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-contact-3.html')
+          h6.fs-0.mb-3 Contact 3
+          img(src='/images/poshImages/screenshots/page-contact-3.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-pricing-1.html')
+          h6.fs-0.mb-3 Pricing 1
+          img(src='/images/poshImages/screenshots/page-pricing-1.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-pricing-2.html')
+          h6.fs-0.mb-3 Pricing 2
+          img(src='/images/poshImages/screenshots/page-pricing-2.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-services-1.html')
+          h6.fs-0.mb-3 Services 1
+          img(src='/images/poshImages/screenshots/page-services-1.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-services-2.html')
+          h6.fs-0.mb-3 Services 2
+          img(src='/images/poshImages/screenshots/page-services-2.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-services-3.html')
+          h6.fs-0.mb-3 Services 3
+          img(src='/images/poshImages/screenshots/page-services-3.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-log-in.html')
+          h6.fs-0.mb-3 Log in (Simple)
+          img(src='/images/poshImages/screenshots/page-log-in.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-log-in-social.html')
+          h6.fs-0.mb-3 Log in (With Social)
+          img(src='/images/poshImages/screenshots/page-log-in-social.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-profile.html')
+          h6.fs-0.mb-3 Profile
+          img(src='/images/poshImages/screenshots/page-profile.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-settings.html')
+          h6.fs-0.mb-3 Settings
+          img(src='/images/poshImages/screenshots/page-settings.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-recovery.html')
+          h6.fs-0.mb-3 Account Recovery
+          img(src='/images/poshImages/screenshots/page-recovery.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='page-maintenance.html')
+          h6.fs-0.mb-3 Maintenance
+          img(src='/images/poshImages/screenshots/page-maintenance.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='shop-products-list.html')
+          h6.fs-0.mb-3 Products List
+          img(src='/images/poshImages/screenshots/shop-products-list.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='shop-products-grid.html')
+          h6.fs-0.mb-3 Products Grid
+          img(src='/images/poshImages/screenshots/shop-products-grid.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='shop-product-details.html')
+          h6.fs-0.mb-3 Product Details
+          img(src='/images/poshImages/screenshots/shop-product-details.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='shop-cart.html')
+          h6.fs-0.mb-3 Cart
+          img(src='/images/poshImages/screenshots/shop-cart.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='portfolio-1.html')
+          h6.fs-0.mb-3 List Title inside
+          img(src='/images/poshImages/screenshots/portfolio-1.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='portfolio-2.html')
+          h6.fs-0.mb-3 List Title Outside
+          img(src='/images/poshImages/screenshots/portfolio-2.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='portfolio-3.html')
+          h6.fs-0.mb-3 List Title hover
+          img(src='/images/poshImages/screenshots/portfolio-3.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='portfolio-details.html')
+          h6.fs-0.mb-3 Portfolio Details
+          img(src='/images/poshImages/screenshots/portfolio-details.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='blog-list.html')
+          h6.fs-0.mb-3 Blog list
+          img(src='/images/poshImages/screenshots/blog-list.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='blog-article.html')
+          h6.fs-0.mb-3 Article
+          img(src='/images/poshImages/screenshots/blog-article.jpg')
+        a.col-6.col-md-4.mb-5.sortable-item.color-9(href='portfolio-case-study.html')
+          h6.fs-0.mb-3 Case Study
+          img(src='/images/poshImages/screenshots/portfolio-case-study.jpg')
+      // /.row
+    // /.container
+  //- section.font-1.lh-3.fw-400.pb-0(style='letter-spacing: -1px;')
+    .container
+      .row
+        .col-lg-6.px-5.py-3
+          hr.color-danger
+          .fs-3 Optimized for every screen size down to a single pixel.
+        .col-lg-6.px-5.py-3
+          hr.color-danger
+          .fs-3 The most modular layout system on the planet.
+        .col-lg-6.px-5.py-3
+          hr.color-danger
+          .fs-3 More powerful than most HTML5 templates.
+        .col-lg-6.px-5.py-3
+          hr.color-danger
+          .fs-3 Bootstrap 4 takes POSH to a whole new level.
+      // /.row
+    // /.container
+  section.text-center.font-1.py-0
+    .container
+      .row.justify-content-center
+        .col-lg-8.col-xl-8.py-8
+          hr.short.color-7.mb-6
+          p.lead.color-1 Want to see the magic? Start creating with POSH
+          a.btn.btn-outline-primary.mt-3(href='#') Hire Me!
+    // /.row
+  // /.container
+
+
