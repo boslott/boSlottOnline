@@ -16,6 +16,7 @@ const autoprefixer = require('autoprefixer');
 // This is our JavaScript rule that specifies what to do with .js files
 const javascript = {
   test: /\.(js)$/, // see how we match anything that ends in `.js`? Cool
+  exclude: /(node_modules)/,
   use: [{
     loader: 'babel-loader',
     options: { presets: ['env'] } // this is one way of passing options
@@ -33,12 +34,7 @@ const postcss = {
   }
 };
 
-const wpProvidePlugin = new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    'window.jQuery': 'jquery',
-    bourbon: 'bourbon'
-});
+
 
 
 // this is our sass/css loader. It handles files that are require('something.scss')
@@ -54,26 +50,7 @@ const styles = {
   })
 };
 
-// loaders: [
-//   {
-//     test: /\.scss$/,
-//     loader: `style!css!sass?includePaths[]=${includePaths}`
-//   }
-// ]
-//     ['css-loader?sourceMap', postcss,
-//     {
-//       loader: "sass-loader",
-//       options: {
-//         sourceMap: true,
-//         data: '@import "variables";',
-//         includePaths: [
-//           path.join(__dirname, 'public', 'sass')
-//         ]}
-//       }])
-// };
 
-// css-loader?sourceMap
-// sass-loader?sourceMap
 
 
 // We can also use plugins - this one will compress the crap out of our JS
@@ -107,7 +84,7 @@ const config = {
   // plugins: [uglify]
   plugins: [
     // here is where we tell it to output our css to a separate file
-    new ExtractTextPlugin('style.css'), wpProvidePlugin
+    new ExtractTextPlugin('style.css')
   ]
 };
 // webpack is cranky about some packages using a soon to be deprecated API. shhhhhhh

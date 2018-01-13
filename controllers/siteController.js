@@ -1,4 +1,5 @@
-
+const mongoose = require('mongoose');
+const Project = mongoose.model('Project');
 
 exports.home = (req, res) => {
   res.render('index', { title: 'Bo Slott Online '});
@@ -22,4 +23,10 @@ exports.blog = (req, res) => {
 
 exports.contact = (req, res) => {
   res.render('contact', { title: 'Contact ' });
+};
+
+exports.getProjectBySlug = async (req, res, next) => {
+  const project = await Project.findOne({ slug: req.params.slug });
+  if (!project) return next();
+  res.render('projectDetails', { project, title: project.name });
 };

@@ -50,9 +50,9 @@ exports.menu = [
 
 exports.adminNav = [
   {
-    slug: '/',
-    title: 'Site',
-    icon: 'home'
+    slug: '/admin-bo',
+    title: 'Dashboard',
+    icon: 'dashboard'
   }, {
     slug: '/blog-admin',
     title: 'Blog Admin',
@@ -61,5 +61,9 @@ exports.adminNav = [
     slug: '/portfolio-admin',
     title: 'Portfolio Admin',
     icon: 'library_books'
+  }, {
+    slug: '/',
+    title: 'Site',
+    icon: 'home'
   }
 ];

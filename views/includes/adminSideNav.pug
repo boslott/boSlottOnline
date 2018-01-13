@@ -11,13 +11,13 @@ nav.side-navbar
   span.heading Main
   ul.list-unstyled
     each item in h.adminNav
-      li
+      li(class=(currentPath.endsWith(item.slug) ? 'active' : ''))
         a(href=item.slug)
           i.material-icons #{item.icon}
           | #{item.title}
     
-  span.heading Extras
-  ul.list-unstyled
+  //- span.heading Extras
+  //- ul.list-unstyled
     li
       a(href='#')
         i.icon-flask
