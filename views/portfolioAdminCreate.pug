@@ -7,11 +7,11 @@ block content
   // Page Header
   header.page-header
     .container-fluid
-      h2.no-margin-bottom Portfolio Admin
+      h2.no-margin-bottom Create New Project
   section.portfolio-admin-options.mt-0
     .container-fluid
       .row.flashes.d-flex.justify-content-center
-        if locals.flashes
+        if locals.flashes 
           .row
             .flash-messages
               - const categories = Object.keys(locals.flashes)
@@ -20,11 +20,7 @@ block content
                   .flash(class=`flash--${category}`)
                     p.flash__text!= message
                     button.flash__remove(onClick="this.parentElement.remove()") &times;
-      .row
-        .col-sm-6.d-flex.justify-content-center
-          button.btn.btn-primary New Project
-        .col-sm-6.d-flex.justify-content-center
-          button.btn.btn-primary All Projects
+
       .row
         .col-sm-10.offset-sm-1.portfolio-admin-body
-          +newPortfolioProjectForm()
+          +newPortfolioProjectForm(project)

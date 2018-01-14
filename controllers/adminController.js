@@ -21,8 +21,8 @@ exports.dashboard = (req, res) => {
   res.render('adminDash');
 };
 
-exports.portfolioAdmin = (req, res) => {
-  res.render('portfolioAdmin', { title: 'Portfolio Admin '});
+exports.portfolioAdminCreate = (req, res) => {
+  res.render('portfolioAdminCreate', { title: 'Create New Project '});
 };
 
 // Saves the file into the memory of the server
@@ -46,6 +46,36 @@ exports.resize = async (req, res, next) => {
 
 exports.createPortfolioProject = async (req, res) => {
   const project = await (new Project(req.body)).save();
-  req.flash('success', 'You have successfully uploaded a new project! 🔱 💻 🔱');
-  res.redirect('/portfolio-admin');
+  req.flash('success', `You have successfully uploaded ${project.name}! 🔱 💻 🔱`);
+  res.redirect('/portfolio-admin/edit');
+};
+
+exports.getProjects = async (req, res) => {
+  const projects = await Project.find();
+  res.render('portfolioAdminEdit', { projects, title: 'Edit Projects '});
+};
+
+exports.editProject = async (req, res) => {
+  // 1. Find the project given the id
+  const project = await Project.findOne({ _id: req.params.id });
+
+  // 2. Render out the edit form to edit the project
+  res.render('portfolioAdminCreate', { title: `Edit ${project.name}`, project });
+};
+
+exports.updateProject = async (req, res) => {
+  // Find and update the project
+  const project = await Project.findOneAndUpdate({ _id: req.params.id }, req.body, {
+    new: true, // Return the new store instead of the old one
+    runValidators: true
+  }).exec();
+  req.flash('success', `Successfully updated '${project.name}'`);
+  // 2. Redirect to the edit projects page and tell it worked
+  res.redirect(`/portfolio-admin/edit`);
+};
+
+exports.deleteProject = async (req, res) => {
+  const project = await Project.remove({ _id: req.params.id }).exec();
+  req.flash('success', `Successfully removed project`);
+  res.redirect('/portfolio-admin/edit');
 };

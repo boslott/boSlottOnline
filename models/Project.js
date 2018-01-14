@@ -35,15 +35,20 @@ const projectSchema = new mongoose.Schema({
   }
 });
 
-projectSchema.pre('save', function(next) {
+projectSchema.pre('save', async function(next) {
   if(!this.isModified('name')) {
     next(); // Skit it
     return; // Stop this function from running
   }
   this.slug = slug(this.name);
+  // Find other projects that have a slug of name, name-1, name-2
+  const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)$`, 'i');
+  const projectsWithSlug = await this.constructor.find({ slug: slugRegEx });
+  if (projectsWithSlug.length) {
+    this.slug = `${this.slug}-${projectsWithSlug.length + 1}`;
+  }
   next();
   
-  // To do, make more resiliant so slugs are unique
 });
 
 module.exports = mongoose.model('Project', projectSchema);

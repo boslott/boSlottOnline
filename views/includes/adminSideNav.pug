@@ -12,10 +12,20 @@ nav.side-navbar
   ul.list-unstyled
     each item in h.adminNav
       li(class=(currentPath.endsWith(item.slug) ? 'active' : ''))
-        a(href=item.slug)
+        a(href=item.slug aria-expanded=item.aria data-toggle=item.dataToggle)
           i.material-icons #{item.icon}
           | #{item.title}
+        if item.drops
+          ul.collapse.list-unstyled(id=`${item.itemsId}`)
+            each drop in item.drops
+              li
+                a(href=drop.dropLink)
+                  i.material-icons #{drop.dropIcon}
+                  | #{drop.dropTitle}
     
+
+
+
   //- span.heading Extras
   //- ul.list-unstyled
     li

@@ -114,6 +114,7 @@ const addTechnologyItemInput = () => {
 };
 
 
+
 $(document).ready(function() {
 
   addDescriptionParagraph();

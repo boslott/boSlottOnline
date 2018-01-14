@@ -58,9 +58,21 @@ exports.adminNav = [
     title: 'Blog Admin',
     icon: 'description'
   }, {
-    slug: '/portfolio-admin',
+    slug: '#portfolioAdminItems',
     title: 'Portfolio Admin',
-    icon: 'library_books'
+    icon: 'library_books',
+    itemsId: 'portfolioAdminItems',
+    aria: false,
+    dataToggle: 'collapse',
+    drops: [{
+      dropTitle: 'Create New Project',
+      dropIcon: 'build',
+      dropLink: '/portfolio-admin/create'
+    }, {
+      dropTitle: 'Edit Projects',
+      dropIcon: 'edit',
+      dropLink: '/portfolio-admin/edit'
+    }]
   }, {
     slug: '/',
     title: 'Site',
