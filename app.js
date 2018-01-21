@@ -12,10 +12,14 @@ const expressValidator = require('express-validator');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
+const morgan = require('morgan');
 // require('./handlers/passport');
 
 // create our Express app
 const app = express();
+
+// Logger
+app.use(morgan('dev'));
 
 // view engine setup
 app.set('views', './views'); // this is the folder where we keep our pug files

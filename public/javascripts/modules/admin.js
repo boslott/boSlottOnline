@@ -113,6 +113,63 @@ const addTechnologyItemInput = () => {
   });
 };
 
+// Add category to the categories list as needed for a Post
+const addCategoryInput = () => {
+  let inputCounter = 1;
+  $('#addCategory').on('click', () => {
+
+    const newLabel = $('<label></label>')
+      .attr('for', `categories${inputCounter}`)
+      .text('Next Category');
+
+    const newInput = $('<input>')
+      .attr('type', 'text')
+      .attr('id', `categories${inputCounter}`)
+      .attr('name', 'categories')
+      .addClass('categories form-control');
+
+    const col1 = $('<div></div>')
+      .addClass('col-sm-6 form-group ml-3')
+      .append(newLabel)
+      .append(newInput);
+
+    const col2 = $('<div></div>')
+      .addClass('col-sm-6');
+
+    $('.moreCategories').append(col1).append(col2);
+    inputCounter++;
+
+  });
+};
+
+// Add keyword to the keywords list as needed for a Post
+const addKeywordInput = () => {
+  let inputCounter = 1;
+  $('#addKeyword').on('click', () => {
+
+    const newLabel = $('<label></label>')
+      .attr('for', `keywords${inputCounter}`)
+      .text('Next Keyword');
+
+    const newInput = $('<input>')
+      .attr('type', 'text')
+      .attr('id', `keywords${inputCounter}`)
+      .attr('name', 'keywords')
+      .addClass('keywords form-control');
+
+    const col1 = $('<div></div>')
+      .addClass('col-sm-6 form-group ml-3')
+      .append(newLabel)
+      .append(newInput);
+
+    const col2 = $('<div></div>')
+      .addClass('col-sm-6');
+
+    $('.moreKeywords').append(col1).append(col2);
+    inputCounter++;
+
+  });
+};
 
 
 $(document).ready(function() {
@@ -121,5 +178,14 @@ $(document).ready(function() {
   addServiceItemInput();
   addFeatureItemInput();
   addTechnologyItemInput();
+  addCategoryInput();
+  addKeywordInput();
+
+  // Summernote Initialization
+  $('#summernote').summernote({
+    height: 200
+  })
+
+
 
 });

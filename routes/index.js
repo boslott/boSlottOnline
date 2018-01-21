@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const siteController = require('../controllers/siteController');
 const adminController = require('../controllers/adminController');
+const projectController = require('../controllers/projectController');
+const blogController = require('../controllers/blogController');
+const userController = require('../controllers/userController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
 
@@ -9,31 +12,54 @@ const { catchErrors } = require('../handlers/errorHandlers');
 router.get('/', siteController.home);
 router.get('/about', siteController.about);
 router.get('/services', siteController.services);
-router.get('/portfolio', siteController.portfolio);
+router.get('/portfolio', catchErrors(siteController.portfolio));
 router.get('/portfolio/details/:slug', catchErrors(siteController.getProjectBySlug));
 router.get('/blog', siteController.blog);
+router.get('/blog/:slug', catchErrors(siteController.getPostBySlug));
 router.get('/contact', siteController.contact);
 
 
 
 // Admin Routes
-router.get('/admin-bo', adminController.dashboard);
+router.get('/admin-,main', adminController.dashboard);
+router.get('/new-registration', userController.registration);
+router.get('/user-login', userController.login);
 
-router.get('/portfolio-admin/create', adminController.portfolioAdminCreate);
+
+// Project Routes
+router.get('/portfolio-admin/create', projectController.portfolioAdminCreate);
 router.post('/portfolio-admin/create',
-  adminController.upload,
-  catchErrors(adminController.resize),
-  catchErrors(adminController.createPortfolioProject)
+  projectController.upload,
+  catchErrors(projectController.resize),
+  catchErrors(projectController.createPortfolioProject)
 );
 
 router.post('/portfolio-admin/create/:id',
-  adminController.upload,
-  catchErrors(adminController.resize),
-  catchErrors(adminController.updateProject)
+  projectController.upload,
+  catchErrors(projectController.resize),
+  catchErrors(projectController.updateProject)
 );
 
-router.get('/portfolio-admin/edit', catchErrors(adminController.getProjects));
-router.get('/portfolio-admin/:id/edit', adminController.editProject);
-router.get('/portfolio-admin/:id/delete', catchErrors(adminController.deleteProject));
+router.get('/portfolio-admin/edit', catchErrors(projectController.getProjects));
+router.get('/portfolio-admin/:id/edit', projectController.editProject);
+router.get('/portfolio-admin/:id/delete', catchErrors(projectController.deleteProject));
+
+// Blog Routes
+router.get('/blog-admin/create', blogController.blogAdminCreate);
+router.post('/blog-admin/create', 
+  blogController.upload,
+  catchErrors(blogController.resize),
+  catchErrors(blogController.createBlogPost)
+);
+
+router.post('/blog-admin/create/:id', 
+  blogController.upload,
+  catchErrors(blogController.resize),
+  catchErrors(blogController.updateBlogPost)
+);
+
+router.get('/blog-admin/edit', catchErrors(blogController.getBlogPosts));
+router.get('/blog-admin/:id/edit', blogController.editBlogPost);
+router.get('/blog-admin/:id/delete', catchErrors(blogController.deleteBlogPost));
 
 module.exports = router;

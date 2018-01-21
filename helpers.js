@@ -54,9 +54,21 @@ exports.adminNav = [
     title: 'Dashboard',
     icon: 'dashboard'
   }, {
-    slug: '/blog-admin',
+    slug: '#blogAdminItems', 
     title: 'Blog Admin',
-    icon: 'description'
+    icon: 'description',
+    itemsId: 'blogAdminItems',
+    aria: false,
+    dataToggle: 'collapse',
+    drops: [{
+      dropTitle: 'Create New Blog Post',
+      dropIcon: 'add_circle_outline',
+      dropLink: '/blog-admin/create'
+    }, {
+      dropTitle: 'Edit Blog Post',
+      dropIcon: 'edit',
+      dropLink: '/blog-admin/edit'
+    }]
   }, {
     slug: '#portfolioAdminItems',
     title: 'Portfolio Admin',
@@ -66,7 +78,7 @@ exports.adminNav = [
     dataToggle: 'collapse',
     drops: [{
       dropTitle: 'Create New Project',
-      dropIcon: 'build',
+      dropIcon: 'add_circle_outline',
       dropLink: '/portfolio-admin/create'
     }, {
       dropTitle: 'Edit Projects',
