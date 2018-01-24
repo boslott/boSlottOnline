@@ -25,7 +25,7 @@ block content
             .sortable-item.col-lg-6(class=`${project.category}`)
               a(href=`/portfolio/details/${project.name}` alt=`Click here for details about ${project.slug}`)
                 .hoverbox
-                  img.radius-primary(src=`/images/uploads/${project.photo}` alt=`Project image of ${project.name}` height='450')
+                  img.radius-primary(src=`/images/uploads/projectImgs/${project.photo}` alt=`Project image of ${project.name}` height='450')
                   .hoverbox-content.full-height.color-white.justify-content-center.row.align-items-center.background-1
                     a.col.color-white(href=`/portfolio/details/${project.slug}` alt=`Click here for details about ${project.name}`)
                       p.mb-2.d-inline-block #{project.category}
