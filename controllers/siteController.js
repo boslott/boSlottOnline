@@ -25,14 +25,15 @@ exports.getProjectBySlug = async (req, res, next) => {
   res.render('projectDetails', { project, title: project.name });
 };
 
-exports.blog = (req, res) => {
-  res.render('blog', { title: 'Blog ' });
+exports.blog = async (req, res) => {
+  const posts = await Post.find();
+  res.render('blog', { title: 'Blog ', posts });
 };
 
 exports.getPostBySlug = async (req, res, next) => {
-  const post = await Post.findOne({ slug: req.params.slug });
-  if (!post) return next();
-  res.render('postDetails', { post, title: post.title });
+  const post = await Post.findOne({ slug: req.params.slug })
+    .populate('comments')
+    .then(post => { res.render('postDetails', { title: `${post.title} | Bo Slott Online Full Stack Web Developer `, post })});
 };
 
 exports.contact = (req, res) => {

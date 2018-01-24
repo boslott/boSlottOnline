@@ -86,6 +86,10 @@ exports.adminNav = [
       dropLink: '/portfolio-admin/edit'
     }]
   }, {
+    slug: '/new-registration',
+    title: 'New User Registration',
+    icon: 'face'
+  }, {
     slug: '/',
     title: 'Site',
     icon: 'home'

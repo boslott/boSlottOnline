@@ -10,7 +10,7 @@ const postSchema = new mongoose.Schema({
     required: 'Please provide a title!'
   },
   slug: String,
-  photos: [String],
+  photo: String,
   author: {
     type: String,
     trim: true

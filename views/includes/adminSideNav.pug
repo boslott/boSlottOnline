@@ -3,10 +3,14 @@ nav.side-navbar
   // Sidebar Header
   .sidebar-header.d-flex.align-items-center
     .avatar
-      img.img-fluid.rounded-circle(src='/images/siteImages/bo-admin-profile-pic.jpg' alt='...')
+      img.img-fluid.rounded-circle(src=`/images/uploads/users/${user.photo}` alt='...')
     .title
-      h1.h4 BO
-      p Web Developer
+      if user
+        h1.h4 #{user.name}
+        p #{user.role}
+      else
+        h1.h4 Unknown User
+        p Unknown Role
   // Sidebar Navidation Menus
   span.heading Main
   ul.list-unstyled

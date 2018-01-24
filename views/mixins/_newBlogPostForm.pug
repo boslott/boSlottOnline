@@ -12,6 +12,13 @@ mixin newBlogPostForm(post = {})
           .col-sm-6.form-group
             label.mr-2(for='author') Author
             input.form-control(type='text' name='author' value=post.author) 
+        .row.mb-5
+          .col-sm-12.form-group
+            //- Image upload
+            label(for="photo") Photo
+            input.form-control-file(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
+            if post.photo != undefined && post.photo.length
+              img(src=`/images/uploads/${post.photo}`, alt=post.title width=200)
         if post.categories != undefined && post.categories.length > 1
           each category in post.categories
             .row.mb-3
@@ -56,7 +63,7 @@ mixin newBlogPostForm(post = {})
                 i.material-icons.mr-3 add_circle_outline
                 | Add Keyword
         .moreKeywords.row.mb-3
-        .dropdown-divider.my-5
+        .dropdown-divider.my-5 
 
         .row.mb-3
           .col-sm-12.form-group

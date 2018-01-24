@@ -13,7 +13,7 @@ const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
 const morgan = require('morgan');
-// require('./handlers/passport');
+require('./handlers/passport');
 
 // create our Express app
 const app = express();
@@ -69,6 +69,7 @@ app.use((req, res, next) => {
   req.login = promisify(req.login, req);
   next();
 });
+
 
 // After allllll that above middleware, we finally handle our own routes!
 app.use('/', routes);

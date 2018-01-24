@@ -1,4 +1,5 @@
 
+
 //  Add paragraphs as needed for the full description of a Project
 const addDescriptionParagraph = () => {
   let inputCounter = 1;

@@ -1,16 +1,16 @@
 const passport = require('passport');
 
 exports.loginUser = passport.authenticate('local', {
-  failureRedirect: '/admin-login',
+  failureRedirect: '/user-login',
   failureFlash: 'Failed Login!',
-  successRedirect: '/admin-bo',
+  successRedirect: '/admin-main',
   successFlash: 'You are now logged in! 👏 👏 👏'
 });
 
 exports.logout = (req, res) => {
   req.logout();
   req.flash('success', 'You are now logged out! 😜');
-  res.redirect('/admin-login');
+  res.redirect('/user-login');
 };
 
 exports.isLoggedIn = (req, res, next) => {
@@ -19,5 +19,5 @@ exports.isLoggedIn = (req, res, next) => {
     return;
   }
   req.flash('error', 'Oops! You must be logged in to do that!');
-  res.redirect('/admin-login');
+  res.redirect('/user-login');
 };
