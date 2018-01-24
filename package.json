@@ -6,10 +6,11 @@
     "node": ">= 7.6.0"
   },
   "author": "Bo Slott",
+  "description": "Online portfolio for Bo Slott",
   "scripts": {
-    "prod": "node ./start.js",
+    "start": "node ./start.js",
     "watch": "nodemon ./start.js --ignore public/",
-    "start": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
+    "dev": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
     "assets": "webpack -w --display-max-modules 0"
   },
   "browserslist": "last 3 versions",
