@@ -6116,6 +6116,10 @@ a.bg-warning:focus, a.bg-warning:hover {
   background-color: #d9534f !important;
 }
 
+.bg-white {
+  background-color: #fff !important;
+}
+
 a.bg-danger:focus, a.bg-danger:hover {
   background-color: #c9302c !important;
 }
