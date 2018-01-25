@@ -3024,7 +3024,7 @@ section {
 }
 
 .background-holder.overlay-2:before {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .background-holder video {
