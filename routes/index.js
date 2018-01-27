@@ -28,23 +28,31 @@ router.get('/contact', siteController.contact);
   router.get('/user-login', userController.login);
   router.post('/user-login', authController.loginUser);
   router.get('/new-registration',
-    // authController.isLoggedIn,
+    authController.isLoggedIn,
     userController.registration);
   router.post('/new-registration',
-    // authController.isLoggedIn,
-    userController.upload,
-    catchErrors(userController.resize),
+    authController.isLoggedIn,
     userController.validateRegister,
-    catchErrors(userController.registerUser),
-    authController.loginUser
-  )
+    catchErrors(userController.registerUser)
+  );
   router.get('/logout', authController.logout);
+
+  router.post('/account/forgot', catchErrors(authController.forgot));
+  router.get('/account/reset/:token', catchErrors(authController.reset));
+  router.post('/account/reset/:token',
+    authController.confirmedPasswords,
+    catchErrors(authController.update)
+  );
 
 
 //  ---------------------
 //  Admin Routes
 //  ---------------------
-  router.get('/admin-main', adminController.dashboard);
+  router.get('/admin-main',
+    authController.isLoggedIn,
+    catchErrors(adminController.dashboard));
+  
+ 
 
 
 //  ---------------------

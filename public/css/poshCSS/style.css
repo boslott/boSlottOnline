@@ -10,10 +10,21 @@
   background-color: #fff !important;
 }
 
+html {
+  min-height: 100%
+}
 
 body {
   position: relative;
   min-height: 100%; 
+}
+
+.content {
+  min-height: 70vh;
+}
+
+.site-footer {
+  height: 50px;
 }
 
 * {

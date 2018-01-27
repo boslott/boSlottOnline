@@ -53,6 +53,7 @@ exports.validateRegister = (req, res, next) => {
     remove_extension: false,
     gmail_remove_subaddress: false
   });
+  req.sanitizeBody('role');
   req.checkBody('password', 'Password cannot be blank!').notEmpty();
   req.checkBody('password-confirm', 'Confirm Password cannot be blank!').notEmpty();
   req.checkBody('password-confirm', 'Oops! Your passwords do not match!').equals(req.body.password);
@@ -66,12 +67,13 @@ exports.validateRegister = (req, res, next) => {
   next();
 };
 
-exports.registerUser = async (req, res, next) => {
+exports.registerUser = async (req, res) => {
   const user = new User({
     email: req.body.email,
     name: req.body.name
   });
+  // User.register method comes from the passportLocalMongoose package
   const registerWithPromise = promisify(User.register, User);
   await registerWithPromise(user, req.body.password);
-  next();
+  res.render('adminDash', { title: 'Admin Dashboard '});
 };

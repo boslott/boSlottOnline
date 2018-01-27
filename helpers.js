@@ -50,7 +50,7 @@ exports.menu = [
 
 exports.adminNav = [
   {
-    slug: '/admin-bo',
+    slug: '/admin-main',
     title: 'Dashboard',
     icon: 'dashboard'
   }, {

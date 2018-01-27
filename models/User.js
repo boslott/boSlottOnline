@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
 const md5 = require('md5');
 const validator = require('validator');
 const mongodbErrorHandler = require('mongoose-mongodb-errors');
 const passportLocalMongoose = require('passport-local-mongoose');
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   email: {
     type: String,
     unique: true,
@@ -23,7 +24,9 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     trim: true
-  }
+  },
+  resetPasswordToken: String,
+  resetPasswordTokenExpires: Date
 });
 
 userSchema.plugin(passportLocalMongoose, { usernameField: 'email' });

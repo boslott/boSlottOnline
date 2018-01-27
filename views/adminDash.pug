@@ -27,28 +27,26 @@ block content
             .icon.bg-violet
               i.icon-user
             .title
-              span
-                | New
-                br
-                | Clients
-              .progress
-                .progress-bar.bg-violet(role='progressbar' style='width: 25%; height: 4px;' aria-valuenow='{#val.value}' aria-valuemin='0' aria-valuemax='100')
+              a.text-secondary(href='/portfolio-admin/edit')
+                span
+                  | Projects
+                  br
+                  | Posted
             .number
-              strong 25
+              strong #{projects.length}
         // Item
         .col-xl-3.col-sm-6
           .item.d-flex.align-items-center
             .icon.bg-red
               i.icon-padnote
             .title
-              span
-                | Work
-                br
-                | Orders
-              .progress
-                .progress-bar.bg-red(role='progressbar' style='width: 70%; height: 4px;' aria-valuenow='{#val.value}' aria-valuemin='0' aria-valuemax='100')
+              a.text-secondary(href='/blog-admin/edit')
+                span
+                  | Blog
+                  br
+                  | Posts
             .number
-              strong 70
+              strong #{posts.length}
         // Item
         .col-xl-3.col-sm-6
           .item.d-flex.align-items-center
@@ -56,13 +54,13 @@ block content
               i.icon-bill
             .title
               span
-                | New
+                | Current
                 br
-                | Invoices
-              .progress
-                .progress-bar.bg-green(role='progressbar' style='width: 40%; height: 4px;' aria-valuenow='{#val.value}' aria-valuemin='0' aria-valuemax='100')
-            .number
-              strong 40
+                | Weather
+              //-   .progress
+              //-     .progress-bar.bg-green(role='progressbar' style='width: 40%; height: 4px;' aria-valuenow='{#val.value}' aria-valuemin='0' aria-valuemax='100')
+              //- .number
+              strong#currentWeather
         // Item
         .col-xl-3.col-sm-6
           .item.d-flex.align-items-center
@@ -70,13 +68,13 @@ block content
               i.icon-check
             .title
               span
-                | Open
+                | 
                 br
-                | Cases
-              .progress
-                .progress-bar.bg-orange(role='progressbar' style='width: 50%; height: 4px;' aria-valuenow='{#val.value}' aria-valuemin='0' aria-valuemax='100')
-            .number
-              strong 50
+                | 
+            //-   .progress
+            //-     .progress-bar.bg-orange(role='progressbar' style='width: 50%; height: 4px;' aria-valuenow='{#val.value}' aria-valuemin='0' aria-valuemax='100')
+            //- .number
+            //-   strong 50
   // Dashboard Header Section
   section.dashboard-header
     .container-fluid
