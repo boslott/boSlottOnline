@@ -27,15 +27,21 @@ router.get('/contact', siteController.contact);
 //  ---------------------
   router.get('/user-login', userController.login);
   router.post('/user-login', authController.loginUser);
+
   router.get('/new-registration',
     authController.isLoggedIn,
     userController.registration);
   router.post('/new-registration',
     authController.isLoggedIn,
+    userController.upload,
+    catchErrors(userController.resize),
     userController.validateRegister,
     catchErrors(userController.registerUser)
   );
-  router.get('/logout', authController.logout);
+
+  router.get('/user-admin/edit', catchErrors(userController.getUsers));
+  router.get('/user-admin/:id/edit', catchErrors(userController.editUser));
+  router.get('/user-admin/:id/delete', catchErrors(userController.deleteUser));
 
   router.post('/account/forgot', catchErrors(authController.forgot));
   router.get('/account/reset/:token', catchErrors(authController.reset));
@@ -43,6 +49,8 @@ router.get('/contact', siteController.contact);
     authController.confirmedPasswords,
     catchErrors(authController.update)
   );
+
+  router.get('/logout', authController.logout);
 
 
 //  ---------------------

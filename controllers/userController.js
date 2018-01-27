@@ -4,6 +4,7 @@ const promisify = require('es6-promisify');
 const multer = require('multer');
 const jimp = require('jimp'); // For resizing of photos
 const uuid = require('uuid'); // Makes the files unique
+const util = require('util');
 
 const multerOptions = {
   storage: multer.memoryStorage(),
@@ -23,6 +24,7 @@ exports.upload = multer(multerOptions).single('photo');
 exports.resize = async (req, res, next) => {
   // Check if there is no new file to resize
   if (!req.file) {
+    console.log('Sorry buddy no resize');
     next(); // Skip to the next middleware
     return;
   }
@@ -37,7 +39,12 @@ exports.resize = async (req, res, next) => {
 };
 
 exports.login = (req, res) => {
-  res.render('login', { title: 'Admin Login '});
+  if (req.user) {
+    res.redirect('/admin-main')
+  }
+  else {
+    res.render('login', { title: 'Admin Login '});
+  }
 };
 
 exports.registration = (req, res) => {
@@ -68,12 +75,32 @@ exports.validateRegister = (req, res, next) => {
 };
 
 exports.registerUser = async (req, res) => {
-  const user = new User({
-    email: req.body.email,
-    name: req.body.name
-  });
+  const user = new User(req.body);
+
   // User.register method comes from the passportLocalMongoose package
   const registerWithPromise = promisify(User.register, User);
   await registerWithPromise(user, req.body.password);
-  res.render('adminDash', { title: 'Admin Dashboard '});
+  res.redirect('/admin-main');
+};
+
+exports.getUsers = async (req, res) => {
+  const users = await User.find();
+  res.render('userAdmin', {title: 'All Users ', users });
+};
+
+exports.editUser = async (req, res) => {
+  const peep = await User.findById(req.params.id)
+  res.render('register', { title: 'Edit User ', peep });
+};
+
+exports.deleteUser = async (req, res) => {
+  if (req.user._id == req.params.id) {
+    req.flash('error', 'Cannot delete yourself!');
+    console.log('Oopsie Poopsie');
+    return res.redirect('/user-admin/edit');
+  }
+
+  const user = await User.remove({ _id: req.params.id }).exec();
+  req.flash('success', 'User has been deleted! 💩');
+  res.redirect('/user-admin/edit');
 };

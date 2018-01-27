@@ -1,18 +1,26 @@
-mixin newUserRegistrationForm(user = {})
+mixin newUserRegistrationForm(peep = {})
+  
   .row
     .col-sm-8.offset-sm-2
       .card
         .card-header.text-center.bg-secondary
           h3.text-white New User Registration
         .card-body.p-5
-          form(action='/new-registration' method='POST')
+          form(action='/new-registration' method='POST' enctype='multipart/form-data') 
             .row.mb-3.justify-content-center
               .col-sm-10.form-group
                 label.mr-2(for='name') Name
                 input.form-control(type='text' name='name' required)
             .row.mb-3.justify-content-center
               .col-sm-10.form-group
-                label.mr-2(for='role') User Role
+                //- Image upload
+                label(for="photo") Photo
+                input.form-control-file(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
+                //- if peep.photo
+                //-   img(src=`/images/uploads/userImgs/${peep.photo}`, alt=peep.name width=200)
+            .row.mb-3.justify-content-center
+              .col-sm-10.form-group
+                label.mr-2(for='role') User Role 
                 input.form-control(type='text' name='role')
             .row.mb-3.justify-content-center
               .col-sm-10.form-group

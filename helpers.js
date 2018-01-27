@@ -86,9 +86,21 @@ exports.adminNav = [
       dropLink: '/portfolio-admin/edit'
     }]
   }, {
-    slug: '/new-registration',
-    title: 'New User Registration',
-    icon: 'face'
+    slug: '#userAdminItems',
+    title: 'User Admin',
+    icon: 'face',
+    itemsId: 'userAdminItems',
+    aria: false,
+    dataToggle: 'collapse',
+    drops: [{
+      dropTitle: 'New User Registration',
+      dropIcon: 'person_add',
+      dropLink: '/new-registration'
+    }, {
+      dropTitle: 'Edit Users',
+      dropIcon: 'people',
+      dropLink: '/user-admin/edit'
+    }]
   }, {
     slug: '/',
     title: 'Site',
