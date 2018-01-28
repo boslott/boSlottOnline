@@ -8,7 +8,10 @@ block content
           h1.fs-3.fs-md-4 #{post.title}
           .fs-0.fw-400.lead
             | By &nbsp;
-            a(href="#") #{post.author}
+            if post.author === 'Bo'
+              a(href='/about') #{post.author}
+            else
+              | #{post.author}
           hr.color-9
           .row.mb-5
             .col-4
@@ -18,7 +21,7 @@ block content
             .col-4
               .fa.fa-bookmark.fs-1.mr-2.color-3
               each category in post.categories
-                a(href="#") #{category}
+                #{category}
                 if (post.categories.indexOf(category) !== post.categories.length - 1)
                   | , &nbsp;
               //- a(href="#") Tools
