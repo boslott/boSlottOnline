@@ -131,15 +131,43 @@ const addCategoryInput = () => {
 
     const col1 = $('<div></div>')
       .addClass('col-sm-6 form-group ml-3')
+      .addClass(`jsRemove${inputCounter}`)
       .append(newLabel)
       .append(newInput);
 
     const col2 = $('<div></div>')
-      .addClass('col-sm-6');
+      .addClass('col-sm-5 d-flex justify-content-center')
+      .addClass(`jsRemove${inputCounter}`);
+
+    const newBtn = $('<button></button>');
+    newBtn.addClass('btn btn-outline-primary d-flex justify-content-center align-items-center w-50 jsRemoveCat')
+      .text('Remove Cateogry')
+      .attr('id', `removeCatBtn${inputCounter}`)
+      .attr('type', 'button')
+      .attr('data-count', `${inputCounter}`);
+
+
+    const newI = $('<i></i>')
+    newI.addClass('material-icons mr-3');
+    newI.text('remove_circle_outline');
+    
+    newBtn.prepend(newI);
+
+    col2.append(newBtn)
 
     $('.moreCategories').append(col1).append(col2);
     inputCounter++;
 
+    removeCategory();
+
+  });
+};
+
+const removeCategory = () => {
+  $('.removeCat').click( function() {
+    // const count = $(this).data;
+    console.log(' = count');
+    console.log('click');
   });
 };
 
@@ -183,6 +211,7 @@ $(document).ready(function() {
   addFeatureItemInput();
   addTechnologyItemInput();
   addCategoryInput();
+  removeCategory();
   addKeywordInput();
 
   // Summernote Initialization
