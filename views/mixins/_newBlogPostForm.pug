@@ -18,7 +18,7 @@ mixin newBlogPostForm(post = {})
             label(for="photo") Photo
             input.form-control-file(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
             if post.photo != undefined && post.photo.length
-              img(src=`/images/uploads/${post.photo}`, alt=post.title width=200)
+              img(src=`/images/uploads/postImgs/${post.photo}`, alt=post.title width=200)
         if post.categories != undefined && post.categories.length > 1
           each category in post.categories
             .row.mb-3
