@@ -3,7 +3,7 @@ const pug = require('pug');
 const juice = require('juice');
 const htmlToText = require('html-to-text');
 const promisify = require('es6-promisify');
-const xoauth2 = require('xoauth2');
+const xoauth2 = require('xoauth2'); 
 
 
 
@@ -33,6 +33,21 @@ exports.send = async (options) => {
     subject: options.subject,
     html: html,
     text: text
+  };
+  const sendMail = promisify(transport.sendMail, transport);
+  return sendMail(mailOptions);
+};
+
+exports.receive = async (options) => {
+  // const html = generateHTML(options.filename, options);
+  // const text = htmlToText.fromString(html);
+
+  const mailOptions = {
+    from: options.from,
+    to: options.to,
+    subject: options.subject,
+    // html: html,
+    text: options.message
   };
   const sendMail = promisify(transport.sendMail, transport);
   return sendMail(mailOptions);

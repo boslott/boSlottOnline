@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 const Project = mongoose.model('Project');
 const Post = mongoose.model('Post');
+const mail = require('../handlers/mail');
 
 exports.home = (req, res) => {
   res.render('index', { title: 'Bo Slott Online '});
 };
 
 exports.about = (req, res) => {
-  res.render('about', { title: 'About ' });
+  res.render('about', { title: 'About ' }); 
 };
 
 exports.services = (req, res) => {
@@ -38,6 +39,22 @@ exports.getPostBySlug = async (req, res, next) => {
 
 exports.contact = (req, res) => {
   res.render('contact', { title: 'Contact ' });
+};
+
+exports.sendContact =  async (req, res) => {
+
+  await mail.receive({
+    to: 'boslott@gmail.com',
+    from: req.body.from,
+    subject: 'Message From BoSlott.Online',
+    message: req.body.message,
+    fromName: req.body.name
+    // filename: 'password-reset'  // Pug file for email template
+  });
+  req.flash('success', `You have sent Bo a message! 👏`);
+  
+  // 4. Redirect to the login after the token has been sent
+  res.redirect('/contact');
 };
 
 

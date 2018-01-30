@@ -19,6 +19,7 @@ router.get('/portfolio/details/:slug', catchErrors(siteController.getProjectBySl
 router.get('/blog', catchErrors(siteController.blog));
 router.get('/blog/:slug', catchErrors(siteController.getPostBySlug));
 router.get('/contact', siteController.contact);
+router.post('/contact', catchErrors(siteController.sendContact));
 
 
 

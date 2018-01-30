@@ -34,16 +34,16 @@ block content
             .col
               a.fw-300(href="#") boslott@gmail.com
         .col-lg-7
-          form.zform()
+          form(action='/contact' method='POST')
             .form-group
-              input.form-control(type="hidden" name="to" value="username@domain.extension")
+              input.form-control(type='hidden' name='to' value='username@domain.extension')
             .form-group
-              input.form-control(type="text" name="name" required="" placeholder="Name")
+              input.form-control(type='text' name='name' required='' placeholder='Name')
             .form-group
-              input.form-control(type="email" name="from" required="" placeholder="Email")
+              input.form-control(type='email' name='from' required='' placeholder='Email')
             .form-group
-              textarea.form-control(rows="8" name="message" placeholder="Message")
-            input.btn.btn-primary(type="submit" name="submit" value="Send!")
+              textarea.form-control(rows='8' name='message' placeholder='Message')
+            input.btn.btn-primary(type='submit' name='submit' value='Send!')
             .zform-feedback.mt-3
         .col.mt-5
           p ** Googlemap placeholder **
