@@ -1,6 +1,18 @@
 extends layout
 
 block content
+  section.portfolio-admin-options.mt-0
+    .container-fluid
+      .row.flashes.d-flex.justify-content-center
+        if locals.flashes 
+          .row
+            .flash-messages
+              - const categories = Object.keys(locals.flashes)
+              each category in categories
+                each message in flashes[category]
+                  .flash(class=`flash--${category}`)
+                    p.flash__text!= message
+                    button.flash__remove(onClick="this.parentElement.remove()") &times;
   section.py-5.color-white.font-1
     .background-holder.overlay.py-5(style="background-image:url(/images/siteImages/contact-us.jpg);")  
     // /.background-holder
