@@ -24,6 +24,10 @@ block content
               a.color-2(href=`/blog/${post.slug}`)
                 h5.card-title #{post.title}
               p.card-text.color-4.fw-300.font-1!= post.body.split(' ').slice(0, 25).join(' ')
+                | &nbsp; ...
+                br
+                br
+                a(href=`/blog/${post.slug}`) Read More
                 
             .card-footer.background-white
               .media.align-items-center
