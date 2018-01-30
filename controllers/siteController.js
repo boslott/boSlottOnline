@@ -46,7 +46,7 @@ exports.sendContact =  async (req, res) => {
   await mail.receive({
     to: 'boslott@gmail.com',
     from: req.body.from,
-    subject: 'Message From BoSlott.Online',
+    subject: `<boslott.online> Message From ${req.body.name} at ${req.body.from} `,
     message: req.body.message,
     fromName: req.body.name
     // filename: 'password-reset'  // Pug file for email template
