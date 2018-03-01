@@ -45,7 +45,7 @@ exports.createBlogPost = async (req, res) => {
   res.redirect('/blog-admin/edit');
 };
 
-
+ 
 exports.getBlogPosts = async (req, res) => {
   const posts = await Post.find();
   res.render('blogAdminEdit', { posts, title: 'Edit Blog Posts '});

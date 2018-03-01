@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const promisify = require('es6-promisify');
-const mail = require('../handlers/mail');
+const mail = require('../handlers/mail'); 
 
 exports.loginUser = passport.authenticate('local', {
   failureRedirect: '/user-login',
